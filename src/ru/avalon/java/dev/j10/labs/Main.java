@@ -1,10 +1,24 @@
 package ru.avalon.java.dev.j10.labs;
 
+import java.util.Arrays;
+import java.util.stream.IntStream;
+import ru.avalon.java.dev.j10.labs.initialization.FibonacciInitializer;
+import ru.avalon.java.dev.j10.labs.initialization.RandomInitializer;
+import ru.avalon.java.dev.j10.labs.sort.BubbleSort;
+import ru.avalon.java.dev.j10.labs.sort.SelectionSort;
+import ru.avalon.java.dev.j10.labs.sort.ShellSort;
+
 public class Main {
+    
+        public static void randomizer(int[] array){    
+        RandomInitializer random = new RandomInitializer(-50, +50);
+        random.initialize(array);
+        System.out.println("Массив случайных чисел от -50 до +50: " + Arrays.toString(array));
+        } 
 
     public static void main(String[] args) {
-        int[] array;
-
+        int[] array = new int[20];
+        
 	    /*
 	     * TODO(Студент): Выполнить действия над массивом чисел
 	     *
@@ -13,26 +27,60 @@ public class Main {
 	     *
 	     * 1. Проинициализировать массив значениями
 	     *    последовательности чисел Фибоначчи.
-	     *
+	     */
+            
+        FibonacciInitializer fibonacci = new FibonacciInitializer();
+        fibonacci.initialize(array);
+        System.out.println("Числа Фибоначчи: " + "\n" + Arrays.toString(array));
+            
+            /*
 	     * 2. Найти сумму элементов массива.
-	     *
-	     * 3. Проинициализировать массив последовательностью
+	     */
+        
+        int sum = IntStream.of(array).sum();
+        System.out.println("Сумма элементов массива чисел Фибоначчи: " + sum + "\n");
+            
+	    /* 3. Проинициализировать массив последовательностью
 	     *    случайных чисел в диапазоне от -50 до 50.
-	     *
-	     * 4. Отсортировать массив с использованием
+	     */
+        
+        randomizer(array);    
+   
+	    /* 4. Отсортировать массив с использованием
 	     *    пузырьковой сортировки.
-	     *
-         * 5. Проинициализировать массив последовательностью
+	     */
+        
+        BubbleSort bubble = new BubbleSort();
+        bubble.sort(array);
+        System.out.println("Сортировка массива пузырьковой сортировкой: " + Arrays.toString(array) + "\n");    
+        
+        /* 5. Проинициализировать массив последовательностью
          *    случайных чисел в диапазоне от -50 до 50.
-         *
-         * 6. Отсортировать массив с использованием
+         */
+        
+        randomizer(array);
+        
+        /* 6. Отсортировать массив с использованием
          *    сортировки выбором.
-         *
-         * 7. Проинициализировать массив последовательностью
+         */
+        
+        SelectionSort selection = new SelectionSort();
+        selection.sort(array);
+        System.out.println("Сортировка выбором: " + Arrays.toString(array) + "\n");     
+        
+        /* 7. Проинициализировать массив последовательностью
          *    случайных чисел в диапазоне от -50 до 50.
-         *
-         * 8. Отсортировать массив с использованием
+         */
+        
+        randomizer(array);
+        
+        /* 8. Отсортировать массив с использованием
          *    сортировки Шелла.
 	     */
+        
+        ShellSort shell = new ShellSort();
+        shell.sort(array);
+        System.out.println("Сортировка массива методом Шелла: " + Arrays.toString(array) + "\n");
+        
     }
 }

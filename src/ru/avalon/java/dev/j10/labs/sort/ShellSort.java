@@ -20,9 +20,21 @@ public class ShellSort implements Sort {
     /**
      * {@inheritDoc}
      */
+    
+    private final SelectionSort selection = new SelectionSort();
+    
+    @Override
     public void sort(int[] array) {
         /*
          * TODO(Студент): Реализовать метод sort класса ShellSort
          */
+        
+        int d = array.length / 2;
+        while (d >= 1) {
+            for (int i = 0; i < d; i++) {
+                selection.sort(array);
+            }
+            d = d / 2;
+        }
     }
 }
