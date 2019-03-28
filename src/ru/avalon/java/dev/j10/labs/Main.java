@@ -37,7 +37,12 @@ public class Main {
 	     * 2. Найти сумму элементов массива.
 	     */
         
-        int sum = IntStream.of(array).sum();
+        //int sum = IntStream.of(array).sum();
+        int sum = 0;
+        for(int j : array){
+            sum += j;
+    
+        }
         System.out.println("Сумма элементов массива чисел Фибоначчи: " + sum + "\n");
             
 	    /* 3. Проинициализировать массив последовательностью
