@@ -1,5 +1,6 @@
 package ru.avalon.java.dev.j10.labs.sort;
 
+import java.util.Arrays;
 import ru.avalon.java.dev.j10.labs.Sort;
 
 /**
@@ -20,5 +21,22 @@ public class BubbleSort implements Sort {
         /*
          * TODO(Студент): Реализовать метод sort класса BubbleSort
          */
+ 
+        boolean sorted = false;
+        int memory;
+        while(!sorted) {
+            sorted = true;
+            for (int i = 0; i < array.length-1; i++) {
+                if(array[i] > array[i+1]){
+                    sorted = false;
+ 
+                    memory = array[i];
+                    array[i] = array[i+1];
+                    array[i+1] = memory;
+                }
+            }
+        }
+ 
+        
     }
 }

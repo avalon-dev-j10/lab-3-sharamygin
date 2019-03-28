@@ -21,9 +21,27 @@ public class RandomInitializer implements Initializer {
      *
      * @param array массив, подлежащий инициализации
      */
+    
+    private int low;
+    private int high;
+
+    public RandomInitializer(int low, int high) {
+        this.low = low;
+        this.high = high;
+    }
+    
+    
     public void initialize(int[] array) {
         /*
          * TODO(Студент): Реализовать метод initialize класса RandomInitializer
          */
+        if (array != null)
+        for (int i = 0; i < array.length; i++)
+                array[i] = generate();
+        
+    }
+    
+    public int generate() {   
+        return (int) ((Math.random()*(high - low))+low);
     }
 }
